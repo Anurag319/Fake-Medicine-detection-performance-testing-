@@ -1,0 +1,68 @@
+
+// added comment in feature1 again 
+simpleArgs: &simple-args
+  numberOfAccounts: &number-of-accounts 8
+  manufacturername: "Anurag"
+  username: "Armaan"
+  mpid: "0x6d616e7566616374757265725f31000000000000000000000000000000000000"
+  upid: "0x757365725f310000000000000000000000000000000000000000000000000000"
+  ppid: "0x70726f647563745f310000000000000000000000000000000000000000000000"
+
+test:
+  name: simple
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with simple newManufacturer function
+  workers:
+    number: 1
+  rounds:
+    - label: newManufacturer
+      description: Test description for the newManufacturer performance of the deployed contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: C:\Users\HP\Desktop\Ethereum\caliper\caliper-benchmarks\workload\newmanufacturer.js
+        arguments: *simple-args
+    - label: newUser
+      description: Test description for the newUser performance of the deployed contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: C:\Users\HP\Desktop\Ethereum\caliper\caliper-benchmarks\workload\newuser.js
+        arguments: *simple-args
+    - label: newProduct
+      description: Test description for the newProduct performance of the deployed contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: C:\Users\HP\Desktop\Ethereum\caliper\caliper-benchmarks\workload\newproduct.js
+        arguments: *simple-args
+    - label: getProductHistory
+      description: Test description for the getproducthistory performance of the deployed contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: C:\Users\HP\Desktop\Ethereum\caliper\caliper-benchmarks\workload\getproducthistory.js
+        arguments: *simple-args
+    - label: changeOwner
+      description: Test description for the changeowner performance of the deployed contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: C:\Users\HP\Desktop\Ethereum\caliper\caliper-benchmarks\workload\changeowner.js
+        arguments: *simple-args

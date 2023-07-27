@@ -1,0 +1,26 @@
+{
+  "caliper": {
+      "blockchain": "ethereum"
+  },
+  "ethereum": {
+      "url": "ws://127.0.0.1:7545",
+      "contractDeployerAddress": "0x18b27b19876d4b7E357167944888fb7b526fe515",
+      "contractDeployerAddressPrivateKey": "c6aade1e87d9a2662a14489da0dfe788c957da3ce58b111d8515d760d5d82f20",
+      "fromAddress": "0x18b27b19876d4b7E357167944888fb7b526fe515",
+      "fromAddressPrivateKey": "c6aade1e87d9a2662a14489da0dfe788c957da3ce58b111d8515d760d5d82f20",
+      "transactionConfirmationBlocks": 2,
+      "contracts": {
+          "simple": {
+              "path": "./src/ethereum/simple/simple.json",
+              "estimateGas": true,
+              "gas": {
+                "newManufacturer": 4000000,
+                "newUser": 300000,
+                "newProduct": 300000,
+                "getProductHistory": 300000,
+                "changeOwner": 300000
+              }
+          }
+      }
+  }
+}
